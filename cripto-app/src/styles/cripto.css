@@ -1,0 +1,23 @@
+.cripto__main-content {
+	display: flex;
+}
+
+.cripto__sidebar {
+	background-color: #f9d104;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 450px;
+}
+
+.cripto__sidebar-navbar {
+	display: flex;
+	justify-content: space-between;
+}
+
+.cripto__sidebar-navbar h3 {
+	font-weight: lighter;
+}
