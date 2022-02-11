@@ -26,6 +26,21 @@
 			"src": "/img/register.svg",
 			"type": "image/png",
 			"sizes": "512x512"
+		},
+		{
+			"src": "/img/goals.svg",
+			"type": "image/png",
+			"sizes": "612x612"
+		},
+		{
+			"src": "/img/menuv.png",
+			"type": "image/png",
+			"sizes": "612x612"
+		},
+		{
+			"src": "/img/conv.png",
+			"type": "image/png",
+			"sizes": "612x612"
 		}
 	],
 	"start_url": "/",

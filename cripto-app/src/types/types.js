@@ -7,4 +7,6 @@ export const types = {
 
 	uiStartLoading: "[UI] Start loading",
 	uiFinishLoading: "[UI] Finish loading",
+
+	dashSummaryA: "[Dash]  Summary Saves",
 };

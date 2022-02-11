@@ -4,23 +4,17 @@ import { Link } from "react-router-dom";
 import { startGoogleLogin, startLoginEmailPassword } from "../../actions/auth";
 import { useForm } from "../../hooks/useForm";
 import "../../styles/log.css";
-import { RegisterScreen } from "./RegisterScreen";
+// import { RegisterScreen } from "./RegisterScreen";
+// import "./app";
 
 export const LoginScreen = () => {
-	// const sign_in_btn = document.querySelector("#sign-in-btn");
-	// const container = document.querySelector(".container");
-
-	// sign_in_btn.addEventListener("click", () => {
-	// 	container.classList.remove("sign-up-mode");
-	// });
-
 	// U S E   D I S P A T C H
 	const dispatch = useDispatch();
 
 	// U S E  F O R M
 	const [formValues, handleInputChange] = useForm({
-		email: "kim@gmail.com",
-		password: "123456",
+		email: "",
+		password: "",
 	});
 
 	// F O R M   V A L U E S
@@ -67,52 +61,20 @@ export const LoginScreen = () => {
 								onChange={handleInputChange}
 							/>
 						</div>
-						<input type="submit" value="Login" className="btn solid" />
-						<p className="social-text">O inicia sesión con redes sociales</p>
+						<input type="submit" value="Aceptar" className="btnL btn solid" />
+						<p className="social-text">O inicia sesión con Google:</p>
 						<div className="social-media">
-							<a href="#" className="social-icon">
+							{/* <a href="#" className="social-icon">
 								<i className="fab fa-facebook-f"></i>
 							</a>
 							<a href="#" className="social-icon">
 								<i className="fab fa-twitter"></i>
-							</a>
+							</a> */}
 							<a className="social-icon" onClick={handleGoogleLogin}>
 								<i className="fab fa-google"></i>
 							</a>
 						</div>
 					</form>
-					{/* R  E  G  I  S  T  R  A  R  */}
-					{/* <form action="#" className="sign-up-form">
-						<h2 className="title">Registrate</h2>
-						<div className="input-field">
-							<i className="fas fa-user"></i>
-							<input type="text" placeholder="Usuario" />
-						</div>
-						<div className="input-field">
-							<i className="fas fa-envelope"></i>
-							<input type="email" placeholder="Correo" />
-						</div>
-						<div className="input-field">
-							<i className="fas fa-lock"></i>
-							<input type="password" placeholder="Contraseña" />
-						</div>
-						<input type="submit" className="btn" value="Sign up" />
-						<p className="social-text">O inicia sesión con redes sociales</p>
-						<div className="social-media">
-							<a href="#" className="social-icon">
-								<i className="fab fa-facebook-f"></i>
-							</a>
-							<a href="#" className="social-icon">
-								<i className="fab fa-twitter"></i>
-							</a>
-							<a href="#" className="social-icon">
-								<i className="fab fa-google"></i>
-							</a>
-							<a href="#" className="social-icon">
-								<i className="fab fa-linkedin-in"></i>
-							</a>
-						</div>
-					</form> */}
 				</div>
 			</div>
 
@@ -121,36 +83,14 @@ export const LoginScreen = () => {
 				<div className="panel left-panel">
 					<div className="content">
 						<h3>¿Eres nuevo/a?</h3>
-						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-							ex ratione. Aliquid!
-						</p>
-						<Link to="/auth/register" className="link">
-							<button
-								className="btn transparent"
-								id="sign-up-btn"
-								onChange={RegisterScreen}
-							>
-								Registrate
-							</button>
+						<p>¡Unete a nuestra comunidad!</p>
+						<Link to="/auth/register" className="btnL btn transparent">
+							{/* <button className="btnL btn-transparent" id="sign-up-btn"> */}
+							Registrate
+							{/* </button> */}
 						</Link>
 					</div>
 					<img src="../../img/log.svg" className="image" alt="login" />
-				</div>
-				<div className="panel right-panel">
-					<div className="content">
-						<h3>¿Ya tienes usuario?</h3>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-							laboriosam ad deleniti.
-						</p>
-						<Link to="/auth/login" className="link">
-							<button className="btn transparent" id="sign-in-btn">
-								Inicia sesión
-							</button>
-						</Link>
-					</div>
-					<img src="../../img/register.svg" className="image" alt="registrar" />
 				</div>
 			</div>
 		</div>

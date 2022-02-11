@@ -7,9 +7,9 @@ import { firebase } from "../firebase/firebase-config";
 import { AuthRouter } from "./AuthRouter";
 import { PrivateRoute } from "./PrivateRoute";
 
-import { HomeScreen } from "../components/cripto/HomeScreen";
 import { login } from "../actions/auth";
 import { PublicRoute } from "./PublicRoute";
+import HomeScreen from "../components/cripto/HomeScreen";
 
 export const AppRouter = () => {
 	const dispatch = useDispatch();

@@ -21,3 +21,14 @@
 .cripto__sidebar-navbar h3 {
 	font-weight: lighter;
 }
+
+.containerC {
+	background-color: #353538;
+	color: white;
+}
+
+.containerH {
+	position: absolute;
+	width: 80%;
+	height: auto;
+}

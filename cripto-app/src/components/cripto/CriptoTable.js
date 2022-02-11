@@ -1,41 +1,43 @@
 import React from "react";
-import { Fragment } from "react/cjs/react.development";
-import { useFetchGifs } from "../hooks/useFetchGifs";
-import { GifGridItem } from "./GifGridItem";
-import PropTypes from "prop-types";
+import { CriptoRow } from "./CriptoRow";
 
-export const GifGrid = ({ category }) => {
-	// U S E   F E T C H   G I F T S
-	const { data: images, loading } = useFetchGifs(category);
-
-	// I M A G E S
-	/*
-	const [images, setImages] = useState([]);
-
-
-*/
-	//getGifs();
-	return (
-		<Fragment>
-			<h3 className="animate__animated animate__fadeIn">{category}</h3>
-			{loading && <p className="animate__animate animate__flash">Loading...</p>}
-			<div className="card-grid">
-				{images.map((img) => (
-					<GifGridItem key={img.id} {...img} />
-				))}
-			</div>
-		</Fragment>
+export const CriptoTable = ({ coins, search }) => {
+	//  t i t l e s
+	const title = [
+		"#",
+		"Coin",
+		"Current Price",
+		"High 24h",
+		"Low 24h",
+		"Price Change 24h",
+		"Price % 24h",
+		"Total Volume",
+		"Mkt Cap",
+	];
+	//F I L T E R
+	const coinsFiltered = coins.filter(
+		(coin) =>
+			coin.name.toLowerCase().includes(search.toLowerCase()) ||
+			coin.symbol.toLowerCase().includes(search.toLowerCase())
 	);
-};
 
-/*
-			<ol>
-				{images.map((img) => (
-					<li key={img.id}>{img.title}</li>
-				))}
-			</ol>*/
-
-// P R O P T Y P E S
-GifGrid.propTypes = {
-	category: PropTypes.string.isRequired,
+	// r e t u r n
+	return (
+		<>
+			<table className="table table-dark mt-4 table-hover ">
+				<thead>
+					<tr>
+						{title.map((t) => (
+							<td key={t}>{t}</td>
+						))}
+					</tr>
+				</thead>
+				<tbody>
+					{coinsFiltered.map((coin, index) => (
+						<CriptoRow key={index} coin={coin} index={index + 1} />
+					))}
+				</tbody>
+			</table>
+		</>
+	);
 };

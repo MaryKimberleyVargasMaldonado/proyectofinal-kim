@@ -1,0 +1,22 @@
+.auth__alert-error {
+	background-color: red;
+	border-radius: 5px;
+	color: white;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+	padding: 5px;
+}
+
+.ta {
+	background-color: #c49700;
+}
+.ta:hover {
+	background-color: #deae2a;
+}
+
+.card-body {
+	display: block;
+	margin: 0 auto;
+	background-color: #deae2a;
+}

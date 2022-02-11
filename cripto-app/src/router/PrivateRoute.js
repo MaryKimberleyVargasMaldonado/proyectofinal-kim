@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { Route, Redirect } from "react-router-dom";
+import HomeScreen from "../components/cripto/HomeScreen";
 
 export const PrivateRoute = ({
 	isAuthenticated,
@@ -13,7 +14,7 @@ export const PrivateRoute = ({
 			{...rest}
 			component={(props) =>
 				isAuthenticated ? (
-					<Component {...props} />
+					<HomeScreen {...props} />
 				) : (
 					<Redirect to="/auth/login" />
 				)

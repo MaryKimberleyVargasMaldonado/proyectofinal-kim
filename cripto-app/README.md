@@ -1,70 +1,208 @@
-# Getting Started with Create React App
+https://codepen.io/piyushpd/pen/gOYvZPG
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { startLogout } from "../../actions/auth";
 
-## Available Scripts
+export const Sidebar = () => {
+// U S E D I S P A T C H
+const dispatch = useDispatch();
 
-In the project directory, you can run:
+    // U S E   S E L E C T O R
+    const { name } = useSelector((state) => state.auth);
 
-### `npm start`
+    // H A N D L E   L O G O U T
+    const handleLogout = () => {
+    	dispatch(startLogout());
+    };
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    // r e t u r n
+    return (
+    	<div className="container-fluid">
+    		<div className="row flex-nowrap">
+    			<div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+    				<div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+    					<a className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+    						<span className="fs-5 d-none d-sm-inline">Menu</span>
+    					</a>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    					<ul
+    						className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+    						id="menu"
+    					>
+    						{/* H    O    M    E    */}
+    						<li className="nav-item">
+    							{/* <Link to="/auth/menu" className="link"> */}
+    							<a className="nav-link align-middle px-0">
+    								<i className="fs-4 bi-house" />
+    								<span className="ms-1 d-none d-sm-inline">Home</span>
+    							</a>
+    							{/* </Link> */}
+    						</li>
 
-### `npm test`
+    						{/* D   A   S   H   B   O   A   R   D */}
+    						<li>
+    							<a
+    								href="#submenu1"
+    								data-bs-toggle="collapse"
+    								className="nav-link px-0 align-middle"
+    							>
+    								<i className="fs-4 bi-speedometer2"></i>
+    								<span className="ms-1 d-none d-sm-inline">Dashboard</span>
+    							</a>
+    							<ul
+    								className="collapse show nav flex-column ms-1"
+    								id="submenu1"
+    								data-bs-parent="#menu"
+    							>
+    								<li className="w-100">
+    									{/* <Link to="/auth/ingresos" className="link"> */}
+    									<a className="nav-link px-0">
+    										<span className="d-none d-sm-inline">Ingresos</span>
+    										{/* //TODO: Add icons */}
+    									</a>
+    									{/* </Link> */}
+    								</li>
+    								<li>
+    									{/* <Link to="/auth/inversiones" className="link"> */}
+    									<a className="nav-link px-0">
+    										<span className="d-none d-sm-inline">Inversiones</span>
+    									</a>
+    									{/* </Link> */}
+    								</li>
+    							</ul>
+    						</li>
+    						<li>
+    							{/* <Link to="/auth/metas" className="link"> */}
+    							<a className="nav-link px-0 align-middle">
+    								<i className="fs-4 bi-table"></i>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    								<span className="ms-1 d-none d-sm-inline">Metas</span>
+    							</a>
+    							{/* </Link> */}
+    						</li>
+    						{/* C    O    N    I    S   -    A   P   I  */}
+    						<li>
+    							<a
+    								data-bs-toggle="collapse"
+    								className="nav-link px-0 align-middle "
+    							>
+    								<i className="fs-4 bi-bootstrap bi-currency-exchange" />
+    								<span className="ms-1 d-none d-sm-inline">Coin</span>
+    								{/* <Link
+    									className="ms-1 d-none d-sm-inline"
+    									to="/criptocurrency"
+    								>
+    									Coin
+    								</Link> */}
+    							</a>
+    							<ul
+    								className="collapse nav flex-column ms-1"
+    								id="submenu2"
+    								data-bs-parent="#menu"
+    							>
+    								<li className="w-100">
+    									<a href="#" className="nav-link px-0">
+    										<span className="d-none d-sm-inline">
+    											Criptocurrencies
+    										</span>
+    										1
+    									</a>
+    								</li>
+    								<li>
+    									<a href="#" className="nav-link px-0">
+    										<span className="d-none d-sm-inline">Item</span> 2
+    									</a>
+    								</li>
+    							</ul>
+    						</li>
+    						{/* E     D    U    C    A   C    I    Ó     N    -    F    I   N    A    N    C   I    E   R  A */}
+    						<li>
+    							<a
+    								href="#submenu3"
+    								data-bs-toggle="collapse"
+    								className="nav-link px-0 align-middle"
+    							>
+    								<i className="fs-4 bi-grid"></i>
+    								<span className="ms-1 d-none d-sm-inline">
+    									Educación Financiera
+    								</span>
+    							</a>
+    							<ul
+    								className="collapse nav flex-column ms-1"
+    								id="submenu3"
+    								data-bs-parent="#menu"
+    							>
+    								<li className="w-100">
+    									<a className="nav-link px-0">
+    										<span className="d-none d-sm-inline">Podcast</span> 1
+    									</a>
+    								</li>
+    							</ul>
+    						</li>
+    					</ul>
+    					<hr />
 
-### `npm run build`
+    					{/* D  R  O  P  D  O  W  N  */}
+    					<div className="dropdown pb-4">
+    						<a
+    							className="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+    							id="dropdownUser1"
+    							data-bs-toggle="dropdown"
+    							aria-haspopup="true"
+    							aria-expanded="false"
+    						>
+    							<img
+    								src="https://res.cloudinary.com/djxrplltk/image/upload/v1643832019/zwgkcpqbxktnlqwbgyr5.jpg"
+    								alt="hugenerd"
+    								width="30"
+    								height="30"
+    								className="rounded-circle"
+    							/>
+    							<span className="d-none d-sm-inline mx-1">{name}</span>
+    						</a>
+    						<ul
+    							className="dropdown-menu dropdown-menu-dark text-small shadow"
+    							aria-labelledby="dropdownUser1"
+    						>
+    							{/* D R O P D O W N   L I S T  */}
+    							<li>
+    								<a className="dropdown-item">Settings</a>
+    							</li>
+    							<li>
+    								<a className="dropdown-item">Profile</a>
+    							</li>
+    							<li>
+    								<hr className="dropdown-divider" />
+    							</li>
+    							<li>
+    								<a className="dropdown-item" onClick={handleLogout}>
+    									Cerrar sesión
+    								</a>
+    							</li>
+    						</ul>
+    					</div>
+    				</div>
+    			</div>
+    			{/* <MenuScreen /> */}
+    		</div>
+    	</div>
+    );
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+};
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    </div>
+    			<div className="panel right-panel">
+    				<div className="content">
+    					<h3>¿Ya tienes usuario?</h3>
+    					<p>
+    						Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+    						laboriosam ad deleniti.
+    					</p>
+    					<Link to="/auth/login" className="link">
+    						<button className="btn transparent" id="sign-in-btn">
+    							Inicia sesión
+    						</button>
+    					</Link>
+    				</div>
+    				<img src="../../img/register.svg" className="image" alt="registrar" />
