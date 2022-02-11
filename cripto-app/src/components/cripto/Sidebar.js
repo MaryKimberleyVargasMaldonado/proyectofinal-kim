@@ -57,7 +57,7 @@ export const menuItems = [
 			{ name: "Metas", to: "/saludf/metas", screen: <Metas /> },
 		],
 	},
-	{ name: "Ajustes", to: `/settings`, iconClassName: "bi bi-gear" },
+	// { name: "Ajustes", to: `/settings`, iconClassName: "bi bi-gear" },
 ];
 
 const SideMenu = (props) => {

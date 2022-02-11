@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "axios": "^0.25.0",
+    "cdbreact": "^1.2.1"
+  }
+}
